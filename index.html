@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Revilise</title>
+    <link rel="stylesheet" href="./fonts/fonts.css" />
+    <link rel="stylesheet" href="index.css" />
+    <!-- insert styles here--->
+</head>
+<body>
+    <div class="site">
+        <div class="header"></div>
+        <div class="intro"></div>
+        <div class="about-me"></div>
+        <div class="goals"></div>
+        <div class="skills"></div>
+    </div>
+</body>
+<script>
+  const blocks = document.querySelectorAll('.site > div')
+
+  async function fetchData(block) {
+    fetch(`./blocks/${block.className}/${block.className}.html`)
+        .then(res => res.text())
+        .then(text => {
+          block.innerHTML = text
+        })
+  }
+  async function connectStyles(classname) {
+    let head = document.querySelector('head')
+    let style = document.createElement('link')
+    style.innerHTML = `<link rel="stylesheet" href="blocks/${classname}/${classname}.css">`
+    head.appendChild(style)
+  }
+  for (let block of blocks) {
+    fetchData(block)
+    connectStyles(block.className)
+  }
+</script>
+</html>

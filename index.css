@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #000;
+    color: #DBDBDB;
+}
+.site {
+    width: 1025px;
+    margin: 64px auto;
+}
+.site > div, .site > div:not([class='footer']) {
+    margin-bottom: 152px;
+}
+.title {
+    margin-bottom: 64px;
+    color: #ffffff;
+}
+.paragraph {
+    line-height: 36px;
+    font-family: Montserrat;
+    font-weight: lighter;
+}

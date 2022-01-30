@@ -1,0 +1,13 @@
+.about-me {
+
+}
+.about-me__title {
+
+}
+.about-me_paragraph + .about-me_paragraph {
+    margin-top: 32px;
+}
+.about-me__paragraph_bordered {
+    padding: 32px;
+    border: 1px solid #AD00FF;
+}
