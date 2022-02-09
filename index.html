@@ -14,17 +14,18 @@
         <div class="about-me"></div>
         <div class="goals"></div>
         <div class="skills"></div>
+        <div class="ad_skills"></div>
     </div>
 </body>
 <script>
   const blocks = document.querySelectorAll('.site > div')
 
   async function fetchData(block) {
-    fetch(`./blocks/${block.className}/${block.className}.html`)
-        .then(res => res.text())
-        .then(text => {
-          block.innerHTML = text
-        })
+      fetch(`./blocks/${block.className}/${block.className}.html`)
+          .then(res => res.text())
+          .then(text => {
+              block.innerHTML = text
+          })
   }
   async function connectStyles(classname) {
     let head = document.querySelector('head')
@@ -32,9 +33,25 @@
     style.innerHTML = `<link rel="stylesheet" href="blocks/${classname}/${classname}.css">`
     head.appendChild(style)
   }
-  for (let block of blocks) {
-    fetchData(block)
-    connectStyles(block.className)
-  }
+
+  new Promise(async (res) => {
+      await blocks.forEach(block => {
+          fetchData(block)
+          connectStyles(block.className)
+      })
+      res()
+  }).then(() => {
+      // span рендерится не сразу, поэтому придется его ловить через процессы.
+      function changeYears() {
+          let span = document.getElementById("intro__subtitle")
+          if (span) {
+            return  span.textContent = `мне ${19} и я фронтенд разработчик`;
+          }
+          // кидаю в конец очереди процессов очередную попытку найти span на странице.
+          return setTimeout(changeYears, 0);
+      }
+      changeYears();
+  })
+
 </script>
 </html>

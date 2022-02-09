@@ -1,0 +1,7 @@
+.ad-skills__container {
+    display: flex;
+    list-style: none;
+}
+.ad-skills__item {
+    margin-right: 24px;
+}
