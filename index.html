@@ -45,7 +45,12 @@
       function changeYears() {
           let span = document.getElementById("intro__subtitle")
           if (span) {
-            return  span.textContent = `мне ${19} и я фронтенд разработчик`;
+              let now = new Date();
+              let date = now.getFullYear() - 2002;
+              if (now.getMonth() < 11 || (now.getDay() < 30 && now.getMonth() === 11)) {
+                  date--;
+              }
+              span.textContent = `мне ${date} и я фронтенд разработчик`;
           }
           // кидаю в конец очереди процессов очередную попытку найти span на странице.
           return setTimeout(changeYears, 0);
