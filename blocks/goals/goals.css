@@ -6,7 +6,7 @@
     position: absolute;
     left: 0;
     z-index: -1;
-    background: radial-gradient(53.41% 43.38% at 76.74% 67.66%, rgba(36, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0) 100%),
+    background: radial-gradient(53.41% 43.38% at 76.74% 67.66%, rgba(36, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%),
     radial-gradient(43.9% 58.06% at 22.68% 48.07%, rgba(255, 0, 107, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .goals__container {

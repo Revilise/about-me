@@ -22,3 +22,16 @@ body {
     font-family: Montserrat;
     font-weight: lighter;
 }
+body::-webkit-scrollbar {
+    width: 16px;
+}
+body::-webkit-scrollbar * {
+    background:transparent;
+}
+body::-webkit-scrollbar-track {
+    width: 1em;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #160030 !important;
+    border-radius: 8px;
+}
